@@ -137,6 +137,7 @@ a {
 .site-nav-link.current {
   color: var(--accent-color);
 }
+
 /* auth-nav */
 
 .auth-nav {
@@ -185,12 +186,15 @@ a {
   background-position: center;
   fill: currentColor;
 }
+
 /* Хедер */
 .page.header {
   color: var(--title-text-color);
 }
+
 /* Мейн */
 
+/* Hero */
 .hero {
   padding: 200px 0;
 
@@ -210,6 +214,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .hero-title {
   width: 696px;
   display: flex;
@@ -233,21 +238,85 @@ a {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-/* Секции */
+
+/* Benefits */
+.benefits-list {
+  display: flex;
+}
+
+.benefits-item:not(:last-child) {
+  margin-right: var(--list-set);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+
+  margin-bottom: var(--list-set);
+
+  border-radius: 4px;
+
+  background-color: var(--bgc-secondary);
+}
+
+.benefits-text {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+}
+
+/* Work */
 .work {
   padding-top: 0;
 }
 .work-list {
   display: flex;
 }
+
 .work-item + .work-item {
   margin-left: var(--list-set);
+}
+
+.div-thumb {
+  position: relative;
+}
+
+.div-thumb::before {
+  display: inline-block;
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 .work-pic {
   max-width: 100%;
   height: auto;
 }
+
+.work-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  padding: 27px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--title-text-color);
+}
+
 /* Team */
 .team {
   background-color: var(--bgc-secondary);
@@ -324,58 +393,6 @@ a {
   text-align: center;
 }
 
-/* Portfolio */
-
-.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: calc(-1 * var(--list-set));
-  margin-right: calc(-1 * var(--list-set));
-}
-
-.card-content {
-  padding-top: 20px;
-  padding-right: var(--padding-text);
-  padding-bottom: 20px;
-  padding-left: var(--padding-text);
-
-  border: 1px solid #eeeeee;
-  border-top: none;
-}
-.galery-headline-portfolio {
-  margin-bottom: 4px;
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
-
-  color: var(--primary-text-color);
-}
-.button-list {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--margin-fifty);
-}
-.button-item:not(:last-child) {
-  margin-right: 8px;
-}
-.portfolio-item {
-  margin-bottom: var(--list-set);
-  margin-right: var(--list-set);
-  flex-basis: calc(100% / 3 - 30px);
-
-  background-color: var(--title-text-color);
-}
-.portfolio-link {
-  display: block;
-}
-.portfolio-link:hover,
-.portfolio-link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
 /* Text */
 .text {
   font-size: 16px;
@@ -392,33 +409,7 @@ a {
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
 }
-/* Benefits */
 
-.benefits-list {
-  display: flex;
-}
-.benefits-item:not(:last-child) {
-  margin-right: var(--list-set);
-}
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-
-  margin-bottom: var(--list-set);
-
-  border-radius: 4px;
-
-  background-color: var(--bgc-secondary);
-}
-
-.benefits-text {
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-  color: var(--secondary-text-color);
-}
 /* Кнопки */
 
 .hero-button {
@@ -530,6 +521,94 @@ a {
   border: 1px solid var(--clients-logo-color);
   border-radius: 4px;
   color: var(--clients-logo-color);
+}
+/* Portfolio */
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: calc(-1 * var(--list-set));
+  margin-right: calc(-1 * var(--list-set));
+}
+
+.card-content {
+  padding-top: 20px;
+  padding-right: var(--padding-text);
+  padding-bottom: 20px;
+  padding-left: var(--padding-text);
+
+  border: 1px solid #eeeeee;
+  border-top: none;
+}
+.galery-headline-portfolio {
+  margin-bottom: 4px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+
+  color: var(--primary-text-color);
+}
+.button-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--margin-fifty);
+}
+.button-item:not(:last-child) {
+  margin-right: 8px;
+}
+.portfolio-item {
+  margin-bottom: var(--list-set);
+  margin-right: var(--list-set);
+  flex-basis: calc(100% / 3 - 30px);
+
+  background-color: var(--title-text-color);
+}
+.portfolio-link {
+  display: block;
+}
+.portfolio-link:hover,
+.portfolio-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.portfolio-thumb {
+  position: relative;
+}
+
+.portfolio-thumb:hover::before {
+  display: inline-block;
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.thumb-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+
+  color: var(--title-text-color);
+
+  opacity: 0;
+}
+.thumb-text:hover {
+  opacity: 1;
 }
 
 /* Футер */
