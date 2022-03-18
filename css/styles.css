@@ -239,6 +239,7 @@ a {
   text-transform: uppercase;
 }
 /* Модальное окно  */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -246,10 +247,16 @@ a {
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
 }
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .modal {
   position: absolute;
   top: 50%;

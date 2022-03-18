@@ -61,16 +61,16 @@
       <section class="hero overlay section">
         <div class="container">
           <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-          <button class="hero-button" type="button">Заказать услугу</button>
+          <button class="hero-button" type="button" data-modal-open>Заказать услугу</button>
         </div>
       </section>
 
       <!-- Модальное окно -->
-      <div class="backdrop is-hidden">
+      <div class="backdrop is-hidden" data-modal>
         <div class="modal">
-          <button type="button" class="backdrop-button" data-close-modal>
+          <button type="button" class="backdrop-button" data-modal-close>
             <svg class="backdrop-icon" width="30" hight="30">
-              <use href="./image/icons.svg"></use>
+              <use href="./image/symbol-defs.svg#close-modal"></use>
             </svg>
           </button>
         </div>
@@ -469,6 +469,7 @@
         </div>
       </div>
     </footer>
-    <script src="./js/modal.js"></script>
+
+    <script src="./modal.js"></script>
   </body>
 </html>
