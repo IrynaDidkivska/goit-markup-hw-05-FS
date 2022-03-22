@@ -6,6 +6,9 @@
 /* Наша команда фон #F5F4FA */
 /* Герой, футер фон #2F303A */
 /* Телефон и мыло rgba(255, 255, 255, 0.6); */
+/* Время - 250ms */
+/* распределения времени - cubic-bezier(0.4, 0, 0.2, 1) */
+
 :root {
   --primary-text-color: #212121;
   --title-text-color: #ffffff;
@@ -18,6 +21,7 @@
   --padding-site-nav: 32px;
   --margin-fifty: 50px;
   --padding-text: 24px;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .visually-hidden {
   position: absolute;
@@ -98,6 +102,7 @@ a {
 .logo-link:hover,
 .logo-link:focus {
   color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 
 /* Навигация */
@@ -130,11 +135,13 @@ a {
 .site-nav-link:hover,
 .site-nav-link:focus {
   color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 
 .site-nav-link.current:hover,
 .site-nav-link.current:focus {
   color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 .site-nav-link.current {
   position: relative;
@@ -180,6 +187,7 @@ a {
 .auth-nav-link:hover,
 .auth-nav-link:focus {
   color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 
 .envelope {
@@ -266,20 +274,25 @@ a {
   height: 100%;
 
   background: rgba(0, 0, 0, 0.2);
-
   opacity: 1;
+  visibility: visible;
+  transition: opasity 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
+}
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   min-width: 528px;
   min-height: 581px;
@@ -288,7 +301,12 @@ a {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms var(--timing-function), opasity 250ms var(--timing-function);
 }
+
 .backdrop-button {
   position: absolute;
   top: 8px;
@@ -307,6 +325,7 @@ a {
   align-items: center;
   justify-content: center;
 }
+
 /* Benefits */
 .benefits-list {
   display: flex;
@@ -489,6 +508,7 @@ a {
 .hero-button:hover,
 .hero-button:focus {
   background-color: #188ce8;
+  transition: 250ms var(--timing-function);
 }
 .hero-button {
   min-width: 200px;
@@ -515,6 +535,7 @@ a {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   background-color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 .button-primary {
   min-width: 73px;
@@ -542,6 +563,7 @@ a {
     0px 2px 2px rgba(0, 0, 0, 0.12);
   color: var(--title-text-color);
   background-color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 .button-secondary {
   display: inline-block;
@@ -580,6 +602,7 @@ a {
 .link-clients:focus {
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 .link-clients {
   display: flex;
@@ -639,16 +662,19 @@ a {
 .portfolio-link {
   display: block;
 }
+
 .portfolio-link:hover,
 .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: 250ms var(--timing-function);
 }
 .portfolio-thumb {
   position: relative;
+  overflow: hidden;
 }
 
-.portfolio-thumb:hover::before {
+.portfolio-overlay {
   display: inline-block;
   content: '';
 
@@ -659,7 +685,19 @@ a {
   height: 100%;
 
   background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function), opacity 250ms var(--timing-function);
 }
+
+.portfolio-link:hover .portfolio-overlay,
+.portfolio-link:focus .portfolio-overlay {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 250ms var(--timing-function);
+}
+
 .thumb-text {
   position: absolute;
   top: 0;
@@ -677,9 +715,12 @@ a {
   color: var(--title-text-color);
 
   opacity: 0;
+  transition: transform 250ms var(--timing-function), opacity 250ms var(--timing-function);
 }
-.thumb-text:hover {
+.portfolio-link:hover .thumb-text,
+.portfolio-link:focus .thumb-text {
   opacity: 1;
+  transition: 250ms var(--timing-function);
 }
 
 /* Футер */
@@ -698,6 +739,7 @@ a {
 .footer-link:hover,
 .footer-link:focus {
   color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 
 .address-item:not(:last-child) {
@@ -725,6 +767,7 @@ a {
 .auth-address:hover,
 .auth-address:focus {
   color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 .footer-title {
   margin-bottom: 20px;
@@ -767,6 +810,7 @@ a {
 .footer-social-link:hover,
 .footer-social-link:focus {
   background-color: var(--accent-color);
+  transition: 250ms var(--timing-function);
 }
 .footer-social-link {
   display: flex;
