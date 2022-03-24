@@ -679,7 +679,6 @@ a {
 
 .portfolio-overlay {
   display: inline-block;
-  content: '';
 
   position: absolute;
   top: 0;
